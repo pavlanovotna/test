@@ -1,0 +1,76 @@
+@font-face {
+    font-family: 'bc_dress';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('~assets/fonts/bc_dres_one_regular-webfont.woff') format('truetype'),
+    
+  }
+  // SASS MIXINS
+// common css parts
+// -----------------------------------
+
+//vyhlazovani textu
+@mixin antialiased {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+//logo
+@mixin ir {
+	display: block;
+	border: 0;
+	text-indent: -999em;
+	overflow: hidden;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	text-align: left;
+	direction: ltr;
+	*line-height: 0;
+}
+@mixin ratio($height) {
+	&::after {
+		content: '';
+		display: block;
+		padding-bottom: $height;
+	}
+}
+body { 
+    font-family: bc_dress, sans-serif; 
+    .top{
+        height: 100vh;
+        .topWrap{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            h1{
+            
+            @include ir;
+
+            background: url( ~/assets/logo.svg) 0 0 no-repeat;
+            background-size: contain;
+            width: 40vw;
+            height: 12vw;
+            margin-bottom: 1em;
+            
+            }   
+            small{
+                display:block;
+                text-align: center;
+                font-size: 29px;
+                letter-spacing: 0.03em;
+                text-transform: uppercase;
+            }
+        }
+    }
+    .middle{
+        ul{
+            li{
+                font-size: 49px;
+                line-height: 59px;
+                letter-spacing: 0.03em;
+                text-transform: uppercase;
+            }
+        }
+    }
+}
